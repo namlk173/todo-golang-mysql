@@ -1,0 +1,37 @@
+<html>
+    <header>
+        <title>My todo</title>
+    </header>
+    <body>
+        <div style="text-align: center;">
+            <h1 style="color: darkmagenta;">My todo list</h1>
+            <h3 style="color: brown;">Number of todos: {{len .}}</h3>
+        </div>
+        <div>
+            <a href="/form-create" style="text-decoration: none; text-underline-position: unset; color: darkgreen;">Create a new todo.</a>
+        </div>
+        <div style="margin-top: 20px;">
+            <div style="display: flex; justify-content: space-between; padding-left: 40px;">
+                <span style="flex: 2; font-size: 1.2rem;">Name</span>
+                <span style="flex: 1; font-size: 1.2rem;">Expired</span>
+                <span style="flex: 1; font-size: 1.2rem;">Completed</span>
+                <span style="flex: 1; font-size: 1.2rem;">Action</span>
+            </div>
+            <ol>
+                {{range .}}
+                <li>
+                    <div style="display: flex; justify-content: space-between;">
+                        <span style="flex: 2;">{{.GetName}}</span>
+                        <span style="flex: 1; text-transform: capitalize">{{.GetExpired}}</span>
+                        <span style="flex: 1; text-transform: capitalize">{{.GetCompleted}}</span>
+                        <span style="flex: 1;">
+                            <span style="margin-right: 10px;"><a href="/form-update/?id={{.GetId}}" style="text-decoration: none; font-size: 1.2rem; color: blue;">Update</a></span>
+                            <span><a href="/delete/?id={{.GetId}}" style="text-decoration: none; font-size: 1.4rem; color: crimson;">Delete</a></span>
+                        </span>
+                    </div>
+                </li>
+                {{end}}
+            </ol>
+        </div>
+    </body>
+</html>

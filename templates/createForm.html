@@ -1,0 +1,54 @@
+<html>
+  <head>
+    <title>Form todo</title>
+  </head>
+  <body>
+    <div style="text-align: center; text-align: center">
+      <h1>Form todo</h1>
+    </div>
+    <div style="display: flex; justify-content: center; margin-top: 20px">
+      <form
+        action="/create"
+        method="post"
+        style="
+          min-width: 400px;
+          min-height: 300px;
+          padding: 20px;
+          border: 2px solid #ccc;
+        "
+      >
+        <div style="display: flex; gap: 10px">
+          <label for="todoname" style="margin-top: 6px">Todo Name:</label>
+          <input
+            type="text"
+            name="todoName"
+            id="todoname"
+            style="flex: 1; padding: 5px 10px"
+            required
+          />
+        </div>
+        <div style="margin-top: 10px">
+          <label for="todoexpired">Expired:</label>
+          <input type="checkbox" name="todoExpired" id="todoexpired" />
+        </div>
+        <div style="margin-top: 10px">
+          <label for="todocompleted">Completed:</label>
+          <input type="checkbox" name="todoCompleted" id="todocompleted" />
+        </div>
+        <div style="margin-top: 20px; display: flex; justify-content: space-between;">
+          <div>
+           <button style="width: 4.6rem; height: 1.4rem;" onclick="history.back()">back</button>
+          </div>
+          <div>
+            <input type="submit" value="Submit" />
+          </div>
+        </div>
+        {{if .}}
+        <div style="text-align: center; color: crimson; margin-top: 30px;">
+          <span>{{.}}</span>
+        </div>
+        {{end}}
+      </form>
+    </div>
+  </body>
+</html>
